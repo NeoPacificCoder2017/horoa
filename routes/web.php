@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('users','UserController@all');
+
+Route::get('/user-form',function (){
+
+    return view('user-form');
+
+});
