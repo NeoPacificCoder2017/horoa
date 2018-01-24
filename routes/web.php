@@ -17,8 +17,11 @@ Route::get('/', function () {
 
 Route::get('users','UserController@all');
 
-Route::get('/user-form',function (){
+
+Route::get('/users/new',function (){
 
     return view('user-form');
 
 });
+
+Route::post('users/new','UserController@new');
