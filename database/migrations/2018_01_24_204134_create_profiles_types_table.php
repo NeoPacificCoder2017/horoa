@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ProfilesTypesTable extends Migration
+class CreateProfilesTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class ProfilesTypesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('profiles_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nom');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class ProfilesTypesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('profiles_types');
     }
 }
