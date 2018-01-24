@@ -7,12 +7,14 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Don' => $baseDir . '/app/Don.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\DonController' => $baseDir . '/app/Http/Controllers/DonController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ProfileTypeController' => $baseDir . '/app/Http/Controllers/ProfileTypeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
@@ -75,6 +77,7 @@ return array(
     'Doctrine\\Instantiator\\Exception\\UnexpectedValueException' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php',
     'Doctrine\\Instantiator\\Instantiator' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php',
     'Doctrine\\Instantiator\\InstantiatorInterface' => $vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator/InstantiatorInterface.php',
+    'DonsTableSeeder' => $baseDir . '/database/seeds/DonsTableSeeder.php',
     'Dotenv\\Dotenv' => $vendorDir . '/vlucas/phpdotenv/src/Dotenv.php',
     'Dotenv\\Exception\\ExceptionInterface' => $vendorDir . '/vlucas/phpdotenv/src/Exception/ExceptionInterface.php',
     'Dotenv\\Exception\\InvalidCallbackException' => $vendorDir . '/vlucas/phpdotenv/src/Exception/InvalidCallbackException.php',

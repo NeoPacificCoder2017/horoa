@@ -16,8 +16,11 @@ class ProfileTypeSeeder extends Seeder
         $profilesTypes = [ ];
         
         for($i = 0; $i < 3; $i++) :
+
+            $nom = ['super_admin','admin','donnateur'];
+
             $profilesTypes [ ]  = [
-                'nom' => str_random(10)
+                'nom' => $nom[$i]
             ];
         endfor;
         
