@@ -1,5 +1,5 @@
 </br></br>
-<a href="modedons/new"><button>Crée un nouveau mode de don</button></a>
+<a href="modedon/new"><button>Crée un nouveau mode de don</button></a>
 </br></br>
 
 <table>
@@ -13,10 +13,10 @@
 
     <tr>
         
-        <td><a href="users/{{$modedons->id}}">{{$modedons->nom}}</a></td>
+        <td><a href="modedon/{{$modedons->id}}">{{$modedons->nom}}</a></td>
 
-        <td><a href="users/{{$modedons -> id}}"><button>Destroy</button><a></td>
-        <td><a href="users/{{$modedons -> id}}"><button>Update</button><a></td>
+        <td><a href="modedon/{{$modedons -> id}}"><button>Destroy</button><a></td>
+        <td><a href="modedon/{{$modedons -> id}}"><button>Update</button><a></td>
 
 
        

@@ -34,9 +34,9 @@ Route::get('modedons','ModeDonController@all');
 Route::get('/modedon/new', function(){
     return view('modedon-form');
 });
-Route::post('modedon/new','ModeDonController@new');
+Route::post('modedon','ModeDonController@new');
 Route::get('modedon/{modedonId}','ModeDonController@show');
-Route::get('modedon/{modedonId}','ModeDonController@edit');
+Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
 Route::post('{modedonId}','ModeDonController@update');
 
 

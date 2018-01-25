@@ -86,21 +86,4 @@ class UserController extends Controller
     //     return view('users/{userId}');
     // }
 
-    public function update(Request $request, $userId){
-
-        $user = User::find($userId);
-        
-        $user= User::update([
-
-        'nom' => request('nom'),
-        'prenom' => request('prenom'),
-        'email' => request('email'),
-        'password' => request('password'),
-       
-        return view('users/{userId}');
-
-       ]);
-
-
-    }
 }

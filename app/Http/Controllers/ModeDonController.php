@@ -6,17 +6,46 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\modeDon;
 
-class ModeDonController extends Controller
+class modeDonController extends Controller
 {
     /*
     **affiche la liste des modes de don
     */
     public function all() {
 
-        $modedon = ModeDon::all();
+        $modedon = modeDon::all();
  
         return view('modedons');
         
  
      }
+
+        /*
+    **affiche les information de l'utilisateur
+    */
+    public function show($modedonId){
+
+        $modedon = modeDon::find($modedonId);
+
+
+        return view('modedon',["modedon"=>$modedon]);
+
+    }
+
+
+    /*
+    **enregistre un nouveau mode de Don
+    */
+    public function new(Request $request){
+
+        $input = $request->all();
+        dump($input);
+        $modedon = new modeDon();
+
+        $modedon->nom = $input['nom'];
+        $modedon->save();
+
+        
+        return view('modedon-create-confirmation');     
+    }
 }
