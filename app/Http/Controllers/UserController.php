@@ -14,8 +14,9 @@ class UserController extends Controller
     */
     public function all() {
 
-       return User::all();
+       $user = User::all();
 
+       return view('users');
        
 
     }
@@ -23,7 +24,14 @@ class UserController extends Controller
     /*
     **affiche les information de l'utilisateur
     */
-    public function show(){}
+    public function show($userId){
+
+        $user = User::find($userId);
+
+
+        return view('user-view',["user"=>$user]);
+
+    }
 
     /*
     **enregistre le nouvelle Utilisateurs
@@ -41,9 +49,58 @@ class UserController extends Controller
 
         $user->save();
 
-        return "Félicitation ".request('nom').' '.request('prenom').' votre inscription réussit';
-               
+        
+        return view('users');     
     }
 
 
+    /*
+    **Function Edit
+    */
+    public function edit($userId){
+        $user = User::find($userId);
+       
+        dump($user);
+        return view('edit.user-form',["user" => $user]);
+    }
+
+
+    /*
+    **modification de l'utilisateur
+    */
+    // public function update(Request $request, $userId){
+
+    //     $user = User::find($userId);
+    //     $user = User::update($userId);
+
+    //     $user = new User();
+    //     $user->nom = $request->input['nom'];
+    //     $user->prenom = $request->input['prenom'];
+    //     $user->email = $request->input['email'];
+    //     $user->password = $request->input['password'];
+
+       
+    //     $user->save();
+         
+    //     dump($user);
+    //     return view('users/{userId}');
+    // }
+
+    public function update(Request $request, $userId){
+
+        $user = User::find($userId);
+        
+        $user= User::update([
+
+        'nom' => request('nom'),
+        'prenom' => request('prenom'),
+        'email' => request('email'),
+        'password' => request('password'),
+       
+        return view('users/{userId}');
+
+       ]);
+
+
+    }
 }

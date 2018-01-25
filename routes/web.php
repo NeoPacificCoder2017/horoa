@@ -25,3 +25,12 @@ Route::get('/users/new',function (){
 });
 
 Route::post('users/new','UserController@new');
+Route::post('{userID}','UserController@update');
+
+Route::get('users/{userId}','UserController@show');
+
+Route::get('users/{userId}/edit','UserController@edit');
+
+
+
+
