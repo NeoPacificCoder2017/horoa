@@ -48,4 +48,14 @@ class modeDonController extends Controller
         
         return view('modedon-create-confirmation');     
     }
+
+    /*
+    **Function Edit
+    */
+    public function edit($modedonId){
+        $modedon = modeDon::find($modedonId);
+       
+        dump($modedon);
+        return view('edit.modedon-form',["modedon" => $modedon]);
+    }
 }
