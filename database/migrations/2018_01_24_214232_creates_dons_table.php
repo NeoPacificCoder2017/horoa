@@ -42,6 +42,6 @@ class CreatesDonsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('dons');
     }
 }

@@ -7,6 +7,7 @@ use App\Don;
 
 class DonController extends Controller
 {
+
     public function all(){
         $dons = Don::all();
         return view('dons.dons',['dons' => $dons]);
@@ -18,36 +19,64 @@ class DonController extends Controller
     }
 
     public function new(){ 
-            return view('dons.don-form');
+            $don = new Don();
+            return view('dons.don-form',['don'=>$don]);
     }
 
     public function create(Request $request)
     { 
         $input = $request->all();
-
-        $don = new don();
-        $don->shipping = $input['nom'];
-        $don->shipping = $input['prenom'];
-        $don->shipping = $input['mail'];
-        $don->shipping = $input['password'];
-        $don->shipping = $input['telephone'];
-        $don->shipping = $input['addresse'];
-        $don->shipping = $input['don'];
-        $don->shipping = $input['mode_don_id'];
-        $don->shipping = $input['date'];
-        $don->shipping = $input['heure'];
-        $don->shipping = $input['validate'];
-        $don->shipping = $input['admin_id'];
-        $don->shipping = $input['somme_verse'];
-        $don->shipping = $input['operation_id'];
+        
+        $don = new Don();
+        $don->nom = $input['nom'];
+        $don->prenom = $input['prenom'];
+        $don->mail = $input['mail'];
+        $don->password = $input['password'];
+        $don->telephone = $input['telephone'];
+        $don->addresse = $input['addresse'];
+        $don->don = $input['don'];
+        $don->mode_don_id = $input['mode_don_id'];
+        $don->date = $input['date'];
+        $don->heure = $input['heure'];
+        $don->validate = $input['validate'];
+        $don->admin_id = $input['admin_id'];
+        $don->somme_verse = $input['somme_verse'];
+        $don->operation_id = $input['operation_id'];
 
         $don->save();
+        return view('dons.don-create-confirmation');
     }
 
     public function edit($donId){
         $don = Don::find($donId);
         // dd($address);
         return view('dons.don-form',['don' => $don]);
+    }
+
+    public function update(Request $request, $donId){ 
+
+        Don::find($donId)->update($request->all());
+        // $don = Don::find($donId);
+        // $input = $request->all();
+
+        // $don->nom = $request->$input['nom'];
+        // $don->prenom = $request->$input['prenom'];
+        // $don->mail = $request->$input['mail'];
+        // $don->password = $request->$input['password'];
+        // $don->telephone = $request->$input['telephone'];
+        // $don->addresse = $request->$input['addresse'];
+        // $don->don = $request->$input['don'];
+        // $don->mode_don_id = $request->$input['mode_don_id'];
+        // $don->date = $request->$input['date'];
+        // $don->heure = $request->$input['heure'];
+        // $don->validate = $request->$input['validate'];
+        // $don->admin_id = $request->$input['admin_id'];
+        // $don->somme_verse = $request->$input['somme_verse'];
+        // $don->operation_id = $request->$input['operation_id'];
+
+        $don->save();
+
+        return view('dons.dons');
     }
 
 }

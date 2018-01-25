@@ -20,6 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('dons', 'DonController@all');
+Route::get('dons/new', 'DonController@new');
+Route::post('dons', 'DonController@create');
 Route::get('dons/{donId}', 'DonController@show'); 
 Route::get('dons/{donId}/edit', 'DonController@edit');
-Route::get('dons/new', 'DonController@new');
+Route::put('dons/{donId}', 'DonController@update');
+
