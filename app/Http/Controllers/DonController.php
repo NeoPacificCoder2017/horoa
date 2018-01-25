@@ -44,4 +44,10 @@ class DonController extends Controller
         $don->save();
     }
 
+    public function edit($donId){
+        $don = Don::find($donId);
+        // dd($address);
+        return view('dons.don-form',['don' => $don]);
+    }
+
 }
