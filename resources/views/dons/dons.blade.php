@@ -3,7 +3,6 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <th> user_id </th>
             <th>nom</th>
             <th>prenom</th>
             <th>mail</th>
@@ -24,7 +23,6 @@
     <tbody>
         @foreach( $dons as $don)
         <tr>
-            <td> {{ $don->user_id }} </td>
             <td> {{ $don->nom}} </td>
             <td> {{ $don->prenom}} </td>
             <td> {{ $don->mail}} </td>

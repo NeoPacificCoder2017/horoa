@@ -18,4 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('dons', 'DonController@all');
+Route::get('dons/{donId}', 'DonController@show'); 
+Route::get('dons/new', 'DonController@new');

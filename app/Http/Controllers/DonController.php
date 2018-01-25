@@ -9,11 +9,20 @@ class DonController extends Controller
 {
     public function all(){
         $dons = Don::all();
-        // dd($address);
         return view('dons.dons',['dons' => $dons]);
     }
 
-    public function create(Request $request){ 
+    public function show($donId){
+        $don = Don::find($donId);
+        return view('dons.don',['don' => $don]);
+    }
+
+    public function new(){ 
+            return view('dons.don-form');
+    }
+
+    public function create(Request $request)
+    { 
         $input = $request->all();
 
         $don = new don();
