@@ -16,7 +16,7 @@ class ProfileTypeTableSeeder extends Seeder
         
         $nom = ['super_admin','admin','donnateur','createur'];
 
-        for($i = 1; $i < 4; $i++) :
+        for($i = 0; $i < 4; $i++) :
             $profilesTypes [ ]  = [
                 'nom' => $nom[$i]
             ];
