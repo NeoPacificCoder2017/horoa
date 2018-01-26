@@ -23,6 +23,7 @@
             <th>somme_verse</th>
             <th>operation_id</th>
             <th>Editer</th>
+            <th>Voir</th>
             <th>Supprimer</th>
 
         </tr>
@@ -45,6 +46,7 @@
             <td> {{ $don->somme_verse}} </td>
             <td> {{ $don->operation_id}} </td>
             <td> <a href="dons/{{$don->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
+            <td> <a href="dons/{{$don->id}}/" type="button" class="btn btn-success" aria-pressed="true">Voir</a> </td>
             <td> 
             <Form action="{{ route('delete',[$don->id]) }}" method="post">
                 {{ csrf_field() }}
@@ -52,17 +54,6 @@
                 <input  type="submit" class="btn btn-danger" value="Delete"/>
             </Form>
             </td>
-            {{--  <td>
-
-                <a class="btn btn-primary" href=" dons/{donId}/edit ">Edit</a>
-
-                {!! Form::open(['method' => 'DELETE','route' => ['{DonController@destroy}', $don->id],'style'=>'display:inline']) !!}
-
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-
-                {!! Form::close() !!}
-
-            </td>  --}}
         </tr>
         @endforeach
     </tbody>
