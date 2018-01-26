@@ -8,12 +8,12 @@ use App\Operation;
 class OperationController extends Controller
 {
     public function all(){
-        $operations = Don::all();
+        $operations = Operation::all();
         return view('operations.operations',['operations' => $operations]);
     }
 
     public function show($operationId){
-        $don = Don::find($operationId);
+        $operation = Operation::find($operationId);
         return view('operations.operation',['operation' => $operation]);
     }
 
@@ -51,25 +51,7 @@ class OperationController extends Controller
     public function update(Request $request, $operationId){ 
 
         Operation::find($operationId)->update($request->all());
-        // $don = Don::find($operationId);
-        // $input = $request->all();
 
-        // $don->nom = $request->$input['nom'];
-        // $don->prenom = $request->$input['prenom'];
-        // $don->mail = $request->$input['mail'];
-        // $don->password = $request->$input['password'];
-        // $don->telephone = $request->$input['telephone'];
-        // $don->addresse = $request->$input['addresse'];
-        // $don->don = $request->$input['don'];
-        // $don->mode_don_id = $request->$input['mode_don_id'];
-        // $don->date = $request->$input['date'];
-        // $don->heure = $request->$input['heure'];
-        // $don->validate = $request->$input['validate'];
-        // $don->admin_id = $request->$input['admin_id'];
-        // $don->somme_verse = $request->$input['somme_verse'];
-        // $don->operation_id = $request->$input['operation_id'];
-
-        // $don->save();
         return view('operations.operation-update-confirmation');
     }
 
