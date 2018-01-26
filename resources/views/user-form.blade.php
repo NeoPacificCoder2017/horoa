@@ -11,3 +11,5 @@
     <input type="submit" value="M'inscrire">
 
 {{ Form::close() }}
+
+<a href="/users"><button>retour</button></a>

@@ -6,7 +6,7 @@
 <table>
     <tr>
         <th>nom</th>
-        <th colspan="3">action</th>
+        <th >action</th>
     </tr>
     <tr>
         <td>{{$modedon->nom}}</td>

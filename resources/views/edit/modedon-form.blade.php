@@ -7,3 +7,5 @@ formulaire modification
 
 
 {{ Form::close() }}
+
+<a href="/modedons"><button>retour</button></a>

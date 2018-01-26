@@ -29,7 +29,7 @@ class UserController extends Controller
         $user = User::find($userId);
 
 
-        return view('user-view',["user"=>$user]);
+        return view('user/{userId}',["user"=>$user]);
 
     }
 
@@ -50,7 +50,7 @@ class UserController extends Controller
         $user->save();
 
         
-        return view('users');     
+        return view('user-create-confirmation');     
     }
 
 
@@ -66,25 +66,35 @@ class UserController extends Controller
 
 
     /*
-    **modification de l'utilisateur
+    **met a jour l'utilisateur
     */
-    public function update(Request $request, $userId){
+    public function update(Request $request,$userId){
 
         User::find($userId)->update($request->all());
-
         $user = User::find($userId);
         $input = $request->all();
+        
 
         $user->nom = $request->$input['nom'];
-        $user->prenom = $request->$input['prenom'];
-        $user->email = $request->$input['email'];
-        $user->password = $request->$input['password'];
+        $user->prenom= $request->$input['prenom'];
+        $user->email= $request->$input['email'];
+        $user->password= $request->$input['password'];
 
-       
-        $user->save();
-         
-        dump($user);
-        return view('users/{userId}');
+        $useroperation->save();
+
+        return view('user-update-confirmation');
+
+
+    }
+
+      /*
+    **Supprime l'utilisateur l'utilisateur
+    */
+    public function destroy($userId){
+        $user = User::find($userId);
+        $user->delete();
+ 
+        return view('user-delete-confirmation');
     }
 
 }

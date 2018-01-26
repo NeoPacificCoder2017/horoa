@@ -28,7 +28,7 @@ class modeDonController extends Controller
         $modedon = modeDon::find($modedonId);
 
 
-        return view('modedon',["modedon"=>$modedon]);
+        return view('modedon/{modedonId}',["modedon"=>$modedon]);
 
     }
 
@@ -73,9 +73,20 @@ class modeDonController extends Controller
 
         $modedon->save();
 
-        return view('{modedonId}');
+        return view('modedon-update-confirmation');
 
 
+    }
+
+
+    /*
+    **Supprime le mode de don
+    */
+    public function destroy($modedonId){
+        $modedon = modeDon::find($modedonId);
+        $modedon->delete();
+ 
+        return view('modedon-delete-confirmation');
     }
 
 }

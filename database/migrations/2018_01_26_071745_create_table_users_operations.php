@@ -13,7 +13,13 @@ class CreateTableUsersOperations extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('users_operations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('operation_id');
+
+            $table->timestamps();
+        });
     }
 
     /**

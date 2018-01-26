@@ -4,3 +4,5 @@
     <input type="submit" value="Ajouter">
 
 {{ Form::close() }}
+
+<a href="/modedons"><button>retour</button></a>

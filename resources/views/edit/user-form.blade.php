@@ -10,3 +10,5 @@ formulaire modification
 
 
 {{ Form::close() }}
+
+<a href="/users"><button>retour</button></a>
