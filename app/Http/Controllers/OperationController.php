@@ -28,23 +28,15 @@ class OperationController extends Controller
     public function create(Request $request){ 
         $input = $request->all();
         
-        $don = new Don();
-        $don->nom = $input['nom'];
-        $don->prenom = $input['prenom'];
-        $don->mail = $input['mail'];
-        $don->password = $input['password'];
-        $don->telephone = $input['telephone'];
-        $don->addresse = $input['addresse'];
-        $don->don = $input['don'];
-        $don->mode_don_id = $input['mode_don_id'];
-        $don->date = $input['date'];
-        $don->heure = $input['heure'];
-        $don->validate = $input['validate'];
-        $don->admin_id = $input['admin_id'];
-        $don->somme_verse = $input['somme_verse'];
-        $don->operation_id = $input['operation_id'];
+        $operation = new Operation();
+        $operation->nom = $input['nom'];
+        $operation->nom = $input['date_debut'];
+        $operation->nom = $input['date_fin'];
+        $operation->nom = $input['createur_id'];
+        $operation->nom = $input['total_recolter'];
+        $operation->nom = $input['total_promis'];
 
-        $don->save();
+        $operation->save();
         return view('operations.operation-create-confirmation');
     }
 
@@ -52,7 +44,7 @@ class OperationController extends Controller
         $url ='operations/'.$operationId ;
         $method='POST';
         
-        $don = Don::find($operationId);
+        $operation = Operation::find($operationId);
         return view('operations.operation-form',['operation' => $operation,'url'=>$url,'method'=>$method]);
     }
 
