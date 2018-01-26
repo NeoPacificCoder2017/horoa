@@ -58,4 +58,16 @@ class modeDonController extends Controller
         dump($modedon);
         return view('edit.modedon-form',["modedon" => $modedon]);
     }
+
+ 
+
+    /*
+    **Supprimer le mode de Don
+    */
+    // public function destroy($modedon){
+
+    //     $modedon = modeDon::find($modedonId)->delete();
+    //     return redirect()->route('{modedonId}');        
+
+    // }
 }
