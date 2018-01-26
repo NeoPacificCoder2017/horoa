@@ -19,12 +19,14 @@ class DonController extends Controller
     }
 
     public function new(){ 
+            $url ='don' ;
+            $method='POST';
+
             $don = new Don();
-            return view('dons.don-form',['don'=>$don]);
+            return view('dons.don-form',['don'=>$don,'url'=>$url,'method'=>$method]);
     }
 
-    public function create(Request $request)
-    { 
+    public function create(Request $request){ 
         $input = $request->all();
         
         $don = new Don();
@@ -48,9 +50,11 @@ class DonController extends Controller
     }
 
     public function edit($donId){
+        $url ='dons/'.$donId ;
+        $method='POST';
+        
         $don = Don::find($donId);
-        // dd($address);
-        return view('dons.don-form',['don' => $don]);
+        return view('dons.don-form',['don' => $don,'url'=>$url,'method'=>$method]);
     }
 
     public function update(Request $request, $donId){ 
@@ -74,9 +78,8 @@ class DonController extends Controller
         // $don->somme_verse = $request->$input['somme_verse'];
         // $don->operation_id = $request->$input['operation_id'];
 
-        $don->save();
-
-        return view('dons.dons');
+        // $don->save();
+        return view('dons.don-update-confirmation');
     }
 
 }
