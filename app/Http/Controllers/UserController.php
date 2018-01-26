@@ -8,7 +8,22 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+
+    public function index(){
+
+
+        $user = Auth::user();
+      $users = User::all()->where('profil_type_id',$user->profil_type_id);
+      return view('users',['user' => $user]);
+        // Auth::login($user, true);
+
+    }
+    
     /*
     **affiche la liste de tous les utilisateurs
     */
@@ -36,8 +51,18 @@ class UserController extends Controller
     /*
     **enregistre le nouvelle Utilisateurs
     */
-    public function new(Request $request){
+    public function new(){
+        $user = new User();
+        
+        return view('user-form',['user'=>$user]);    
+        
 
+    }
+
+    /*
+    **enregistre le nouvelle Utilisateurs
+    */
+    public function create(Request $request){
         $input = $request->all();
         dump($input);
         $user = new User();
@@ -45,14 +70,17 @@ class UserController extends Controller
         $user->nom = $input['nom'];
         $user->prenom = $input['prenom'];
         $user->email = $input['email'];
-        $user->password = $input['password'];
+        $user->password = $input [bcrypt('password')];
+        $user->profile_type_id = $input['profile_type_id'];
 
         $user->save();
 
         
-        return view('user-create-confirmation');     
-    }
+        return view('user-create-confirmation');    
+        
 
+    }
+   
 
     /*
     **Function Edit

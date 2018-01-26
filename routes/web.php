@@ -19,15 +19,14 @@ Route::get('/', function () {
 **ROUTE Entity_USERS
 */
 Route::get('users','UserController@all');
-Route::get('/users/new',function (){
-    return view('user-form');
-});
+
+Route::get('/users/new','UserController@new');
 
 
 /*
 *//*Corrigé car execute un checkAuth a la création
 */
-Route::post('users/new','UserController@new');
+Route::post('user','UserController@create');
 /* */
 
 
@@ -64,3 +63,7 @@ Route::delete('useroperation/{useroperationId}','userOperationController@destroy
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

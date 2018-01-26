@@ -1,7 +1,7 @@
 
 {{--  {{ Form::open(array('url' => 'users/new')) }}  --}}
     
-{{ Form::open(['url' => 'check-auth', 'method' => 'post']) }}
+{{ Form::open(['url' => 'user', 'method' => 'post']) }}
 
     <input type="text" name="nom" placeholder="Nom">
     <input type="text" name="prenom" placeholder="Prenom">
