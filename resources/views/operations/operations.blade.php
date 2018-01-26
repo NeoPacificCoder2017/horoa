@@ -31,7 +31,7 @@
             <Form action="{{ route('delete',[$operation->id]) }}" method="post">
                 {{ csrf_field() }}
                 <input  type="hidden" name="_method" value="DELETE"/>
-                <input  type="submit" class="btn btn-danger" value="Delete"/>
+                <input  onclick="return confirm('Voulez vous vraiment supprimer')" type="submit" class="btn btn-danger" value="Delete"/>
             </Form>
             </td>
         </tr>

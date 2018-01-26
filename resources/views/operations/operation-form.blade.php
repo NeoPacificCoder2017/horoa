@@ -1,6 +1,6 @@
 @extends('template')
 @section('contenu')
-<div class="display-3 text-center my-3"> Edition de : {{ $operation->nom }}</div>
+<div class="display-3 text-center my-3"> {{ $etat }}  {{ $operation->nom }}</div>
 {!! Form::open(['url'=>$url, 'method'=>$method]) !!}
 
 nom :                      <input class="input-group" type="text" name="nom" value=" {{ $operation->nom }} "/> <br/>
