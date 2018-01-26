@@ -1,5 +1,10 @@
 @extends('../template')
 @section('contenu')
+<div class="text-center">
+    <div class="title my-3">
+        Liste des dons
+    </div>
+</div>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -17,6 +22,8 @@
             <th>admin_id</th>
             <th>somme_verse</th>
             <th>operation_id</th>
+            <th>Editer</th>
+            <th>Supprimer</th>
 
         </tr>
     </thead>

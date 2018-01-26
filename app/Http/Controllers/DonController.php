@@ -23,7 +23,7 @@ class DonController extends Controller
             $method='POST';
 
             $don = new Don();
-            return view('dons.don-form',['don'=>$don,'url'=>$url,'method'=>$method]);
+            return view('dons.don-form',['don'=>$don,'url'=>$url,'method'=>$method]);//on déclare les variable pour etre intercepter dans le formulaire
     }
 
     public function create(Request $request){ 
