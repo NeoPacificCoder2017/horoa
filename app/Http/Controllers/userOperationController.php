@@ -76,7 +76,7 @@ class userOperationController extends Controller
 
         $useroperation->save();
 
-        return view('{useroperationId}');
+        return view('useroperation-update-confirmation');
 
 
     }
