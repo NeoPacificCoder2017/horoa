@@ -17,6 +17,9 @@
             <th>admin_id</th>
             <th>somme_verse</th>
             <th>operation_id</th>
+            <th>Editer</th>
+            <th>Voir</th>
+            <th>Supprimer</th>
 
         </tr>
     </thead>
@@ -36,6 +39,14 @@
             <td> {{ $don->admin_id}} </td>
             <td> {{ $don->somme_verse}} </td>
             <td> {{ $don->operation_id}} </td>
+            <td> <a href="dons/{{$don->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
+            <td> 
+            <Form action="{{ route('delete',[$don->id]) }}" method="post">
+                {{ csrf_field() }}
+                <input  type="hidden" name="_method" value="DELETE"/>
+                <input  type="submit" class="btn btn-danger" value="Delete"/>
+            </Form>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -22,7 +22,7 @@
             <td> {{ $operation->createur_id}} </td>
             <td> {{ $operation->total_recolter}} </td>
             <td> {{ $operation->total_promis}} </td>
-            <td> <a href="operations/{{$operation->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
+            <td> <a href="{{$operation->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
             <td> 
             <Form action="{{ route('delete',[$operation->id]) }}" method="post">
                 {{ csrf_field() }}

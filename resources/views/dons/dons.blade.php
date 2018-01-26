@@ -45,17 +45,6 @@
                 <input  type="submit" class="btn btn-danger" value="Delete"/>
             </Form>
             </td>
-            {{--  <td>
-
-                <a class="btn btn-primary" href=" dons/{donId}/edit ">Edit</a>
-
-                {!! Form::open(['method' => 'DELETE','route' => ['{DonController@destroy}', $don->id],'style'=>'display:inline']) !!}
-
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-
-                {!! Form::close() !!}
-
-            </td>  --}}
         </tr>
         @endforeach
     </tbody>
