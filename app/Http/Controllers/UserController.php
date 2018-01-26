@@ -68,22 +68,23 @@ class UserController extends Controller
     /*
     **modification de l'utilisateur
     */
-    // public function update(Request $request, $userId){
+    public function update(Request $request, $userId){
 
-    //     $user = User::find($userId);
-    //     $user = User::update($userId);
+        User::find($userId)->update($request->all());
 
-    //     $user = new User();
-    //     $user->nom = $request->input['nom'];
-    //     $user->prenom = $request->input['prenom'];
-    //     $user->email = $request->input['email'];
-    //     $user->password = $request->input['password'];
+        $user = User::find($userId);
+        $input = $request->all();
+
+        $user->nom = $request->$input['nom'];
+        $user->prenom = $request->$input['prenom'];
+        $user->email = $request->$input['email'];
+        $user->password = $request->$input['password'];
 
        
-    //     $user->save();
+        $user->save();
          
-    //     dump($user);
-    //     return view('users/{userId}');
-    // }
+        dump($user);
+        return view('users/{userId}');
+    }
 
 }

@@ -58,4 +58,24 @@ class modeDonController extends Controller
         dump($modedon);
         return view('edit.modedon-form',["modedon" => $modedon]);
     }
+
+    /*
+    **met a jour le mode de Don
+    */
+    public function update(Request $request,$modedonId){
+
+        modeDon::find($modedonId)->update($request->all());
+        $modedon = modeDon::find($modedonId);
+        $input = $request->all();
+        
+
+        $modedon->nom = $request->$input['nom'];
+
+        $modedon->save();
+
+        return view('{modedonId}');
+
+
+    }
+
 }
