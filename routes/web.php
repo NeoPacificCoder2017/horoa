@@ -45,9 +45,9 @@ Route::delete('modedons','ModeDonController@destroy');
 **ROUTE Entity_UserOperation
 */
 Route::get('useroperations','userOperationController@all');
-// Route::get('/modedon/new', function(){
-//     return view('modedon-form');
-// });
+Route::get('/useroperation/new', function(){
+    return view('useroperation-form');
+});
 // Route::post('modedon','ModeDonController@new');
 // Route::get('modedon/{modedonId}','ModeDonController@show');
 // Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
