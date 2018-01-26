@@ -1,5 +1,6 @@
 @extends('../template')
 @section('contenu')
+<a href="new" type="button" class="btn btn-primary my-3" aria-pressed="true">Nouveau Don</a>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
