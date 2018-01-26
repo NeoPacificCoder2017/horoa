@@ -25,7 +25,7 @@ Route::get('/users/new',function (){
 Route::post('users/new','UserController@new');
 Route::get('users/{userId}','UserController@show');
 Route::get('users/{userId}/edit','UserController@edit');
-Route::post('{userId}','UserController@update');
+Route::post('users/{userId}','UserController@update');
 
 /*
 **ROUTE Entity_ModeDon
@@ -37,7 +37,7 @@ Route::get('/modedon/new', function(){
 Route::post('modedon','ModeDonController@new');
 Route::get('modedon/{modedonId}','ModeDonController@show');
 Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
-Route::post('{modedonId}','ModeDonController@update');
+Route::post('modedons/{modedonId}','ModeDonController@update');
 
 
 
