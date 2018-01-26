@@ -16,7 +16,6 @@
 
         <td><a href="{{$useroperation->id}}/edit">editer</a></td>
 
-
     </tr>
 </table>
 

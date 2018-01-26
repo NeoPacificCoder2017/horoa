@@ -4,10 +4,14 @@ formulaire modification
 
 <input type="texte" name="user_id" >
 
-<input type="texte" name="useroperation_id" >
-<input type="submit" value="Editer">
+<input type="texte" name="operation_id" >
+
 
 
 {{ Form::close() }}
-
+<form action="{{ url('/useroperation/'.$useroperation->id) }}" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <td><input type="submit" value="Edit"></td>
+    {!! csrf_field() !!}
+</form>
 <a href="/useroperations"><button>retour</button></a>

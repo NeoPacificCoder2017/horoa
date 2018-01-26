@@ -8,5 +8,5 @@ class User extends Model
 {
     public $table = "users";
 
-    protected $guarded = ['_token'];
+    protected $guarded = ['_token','check-auth'];
 }

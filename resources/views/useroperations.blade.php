@@ -1,5 +1,5 @@
 </br></br>
-<a href="modedon/new"><button>Crée une nouvelle opération pour un utilisateur</button></a>
+<a href="useroperation/new"><button>Crée une nouvelle opération pour un utilisateur</button></a>
 </br></br>
 
 <table>
@@ -10,15 +10,20 @@
         </tr>
         <tr>
 
-@foreach(App\userOpeation::all() as $useroperations)
+@foreach(App\userOperation::all() as $useroperation)
 
     <tr>
         
-        <td><a href="useroperation/{{$useroperations->id}}">{{$useroperations->user_id}}</a></td>
+        <td><a href="useroperation/{{$useroperation->id}}">{{$useroperation->user_id}}</a></td>
 
-        <td><a href="useroperation/{{$useroperations->id}}">{{$useroperations->operation_id}}</a></td>
-        <td><a href="useroperation/{{$useroperations -> id}}"><button>Destroy</button><a></td>
-        <td><a href="useroperation/{{$useroperations -> id}}"><button>Update</button><a></td>
+        <td><a href="useroperation/{{$useroperation->id}}">{{$useroperation->operation_id}}</a></td>
+
+        <form action="{{ url('/useroperation/'.$useroperation->id) }}" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <td><input type="submit" value="Destroy"></td>
+            {!! csrf_field() !!}
+        </form>
+
 
 
        

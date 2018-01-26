@@ -15,7 +15,7 @@ class modeDonController extends Controller
 
         $modedon = modeDon::all();
  
-        return view('modedons');
+        return view('modedons',["modedon"=>$modedon]);
         
  
      }
@@ -28,7 +28,7 @@ class modeDonController extends Controller
         $modedon = modeDon::find($modedonId);
 
 
-        return view('modedon/{modedonId}',["modedon"=>$modedon]);
+        return view('modedon',["modedon"=>$modedon]);
 
     }
 

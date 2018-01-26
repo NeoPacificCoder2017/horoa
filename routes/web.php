@@ -22,11 +22,19 @@ Route::get('users','UserController@all');
 Route::get('/users/new',function (){
     return view('user-form');
 });
+
+
+/*
+*//*Corrigé car execute un checkAuth a la création
+*/
 Route::post('users/new','UserController@new');
+/* */
+
+
 Route::get('users/{userId}','UserController@show');
 Route::get('users/{userId}/edit','UserController@edit');
-Route::post('users/{userId}','UserController@update');
-Route::get('users/{userId}','UserController@destroy');
+Route::PUT('users/{userId}','UserController@update');
+Route::delete('user/{userId}','UserController@destroy');
 
 /*
 **ROUTE Entity_ModeDon
@@ -38,8 +46,8 @@ Route::get('/modedon/new', function(){
 Route::post('modedon','ModeDonController@new');
 Route::get('modedon/{modedonId}','ModeDonController@show');
 Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
-Route::post('modedons/{modedonId}','ModeDonController@update');
-Route::get('modedons/{modedonId}','ModeDonController@destroy');
+Route::PUT('modedons/{modedonId}','ModeDonController@update');
+Route::delete('modedons/{modedonId}','ModeDonController@destroy');
 
 /*
 **ROUTE Entity_user_operation
@@ -51,8 +59,8 @@ Route::get('/useroperation/new', function(){
 Route::post('useroperation','userOperationController@new');
 Route::get('useroperation/{useroperationId}','userOperationController@show');
 Route::get('useroperation/{useroperationId}/edit','userOperationController@edit');
-Route::post('useroperation/{useroperationId}','userOperationController@update');
-Route::get('useroperation/{useroperationId}','userOperationController@destroy');
+Route::PUT('useroperation/{useroperationId}','userOperationController@update');
+Route::delete('useroperation/{useroperationId}','userOperationController@destroy');
 
 
 

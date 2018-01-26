@@ -29,7 +29,7 @@ class UserController extends Controller
         $user = User::find($userId);
 
 
-        return view('user/{userId}',["user"=>$user]);
+        return view('user',["user"=>$user]);
 
     }
 

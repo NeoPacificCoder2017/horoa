@@ -19,9 +19,11 @@
         <td><a href="users/{{$user->id}}">{{$user->prenom}}</a></td>
         <td><a href="users/{{$user->id}}">{{$user->email}}</a></td>
        
-
-        <td><a href="users/{{$user -> id}}"><button>Destroy</button><a></td>
-        <td><a href="users/{{$user -> id}}"><button>Update</button><a></td>
+        <form action="{{ url('/user/'.$user->id) }}" method="post">
+            <input type="hidden" name="_method" value="delete" />
+            <td><input type="submit" value="Destroy"></td>
+            {!! csrf_field() !!}
+        </form>
 
 
        

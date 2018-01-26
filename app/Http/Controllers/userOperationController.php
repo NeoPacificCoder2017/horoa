@@ -16,7 +16,7 @@ class userOperationController extends Controller
 
         $useroperation = userOperation::all();
  
-        return view('useroperations');
+        return view('useroperations',['useroperation'=>$useroperation]);
         
  
      }
@@ -43,8 +43,8 @@ class userOperationController extends Controller
         $useroperation = new userOperation();
 
         $useroperation->user_id = $input['user_id'];
-        $user->operation_id = $input['operation_id'];
-        $user->save();
+        $useroperation->operation_id = $input['operation_id'];
+        $useroperation->save();
 
         
         return view('useroperations');     
