@@ -1,5 +1,6 @@
 @extends('../template')
 @section('contenu')
+<div class="display-3 text-center my-3"> Opération : {{ $operation->nom }}</div>
 <table class="table table-striped table-hover">
     <thead>
         <tr>

@@ -1,5 +1,7 @@
 @extends('../template')
 @section('contenu')
+<div class="display-3 text-center my-3">Les opérations</div>
+<a href="operations/new" type="button" class="btn btn-primary my-3 float-right" aria-pressed="true">Nouvelle opération</a>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -10,6 +12,7 @@
             <th>telephone</th>
             <th>addresse</th>
             <th>Editer</th>
+            <th>Voir</th>
             <th>Supprimer</th>
         </tr>
     </thead>
@@ -23,6 +26,7 @@
             <td> {{ $operation->total_recolter}} </td>
             <td> {{ $operation->total_promis}} </td>
             <td> <a href="operations/{{$operation->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
+            <td> <a href="operations/{{$operation->id}}" type="button" class="btn btn-success" aria-pressed="true">Voir</a> </td>
             <td> 
             <Form action="{{ route('delete',[$operation->id]) }}" method="post">
                 {{ csrf_field() }}
