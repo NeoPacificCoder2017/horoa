@@ -82,4 +82,11 @@ class DonController extends Controller
         return view('dons.don-update-confirmation');
     }
 
+    public function destroy($donId){
+        $don = Don::find($donId);
+        $don->delete();
+
+        return view('dons.don-delete-confirmation');
+    }
+
 }

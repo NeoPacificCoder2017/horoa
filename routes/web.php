@@ -25,4 +25,4 @@ Route::post('dons', 'DonController@create');
 Route::get('dons/{donId}', 'DonController@show'); 
 Route::get('dons/{donId}/edit', 'DonController@edit');
 Route::post('dons/{donId}', 'DonController@update');
-
+Route::delete('dons/{donId}', 'DonController@destroy')->name('delete');
