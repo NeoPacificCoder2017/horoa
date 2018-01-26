@@ -40,5 +40,17 @@ Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
 // Route::post('{modedonId}','ModeDonController@update');
 
 
+/*
+**ROUTE Entity_UserOperation
+*/
+Route::get('useroperations','userOperationController@all');
+Route::get('/useroperation/new', function(){
+    return view('useroperation-form');
+});
+Route::post('useroperation','userOperationController@new');
+Route::get('useroperation/{useroperationId}','userOperationController@show');
+Route::get('useroperation/{useroperationId}/edit','userOperationController@edit');
+// Route::post('{useroperationId}','useroperationController@update');
+
 
 
