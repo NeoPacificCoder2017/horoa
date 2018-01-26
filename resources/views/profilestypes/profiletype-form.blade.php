@@ -1,6 +1,10 @@
+@extends('template')
+@section('contenu')
 {!! Form::open(['url'=>$url, 'method'=>$method]) !!}
 
-nom :                      <input type="text" name="nom" value=" {{ $profileType->nom }} "/> <br/>
+nom :                      <input class="input-group" type="text" name="nom" value=" {{ $profileType->nom }} "/> <br/>
 
-<input type="submit" value="Valider" />
+<input class="btn btn-success" type="submit" value="Valider" />
+<a href ="../" class="btn btn-danger" value="Valider">Annuler <a/>
 {!! Form::close() !!}
+@endsection
