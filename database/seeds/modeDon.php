@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\modeDon;
 
-class ModesDonsTableSeeder extends Seeder
+class ModesDonsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -30,7 +30,7 @@ class ModesDonsTableSeeder extends Seeder
         foreach ($modedons AS $modedon):
 
 
-        modeDon::create($modedon);
+        ModeDon::create($modedon);
 
         endforeach;
     }

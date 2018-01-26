@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'modedon/new')) }}
+{{ Form::open(array('url' => 'modedon')) }}
 
     <input type="text" name="nom" placeholder="Nom">
     <input type="submit" value="Ajouter">
