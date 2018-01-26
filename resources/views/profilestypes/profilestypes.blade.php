@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach( $profilestypes as $profiletype)
+        @foreach($profilesTypes as $profiletype)
         <tr>
             <td> {{ $profiletype->nom}} </td>
             <td> <a href="profilestypes/{{$profiletype->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
