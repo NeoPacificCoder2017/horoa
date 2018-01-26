@@ -4,14 +4,16 @@
     <thead>
         <tr>
             <th>nom</th>
+            <th>Editer</th>
+            <th>Supprimer</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td> {{ $profiletype->nom}} </td>
-            <td> <a href="profilestypes/{{$profiletype->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
+            <td> {{ $profileType->nom}} </td>
+            <td> <a href="profilestypes/{{$profileType->id}}/edit" type="button" class="btn btn-primary" aria-pressed="true">Editer</a> </td>
             <td> 
-            <Form action="{{ route('delete',[$profiletype->id]) }}" method="post">
+            <Form action="{{ route('delete',[$profileType->id]) }}" method="post">
                 {{ csrf_field() }}
                 <input  type="hidden" name="_method" value="DELETE"/>
                 <input  type="submit" class="btn btn-danger" value="Delete"/>
