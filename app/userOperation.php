@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class userOperation extends Model
 {
-    public $table = "modes_dons";
+    public $table = "users_operations";
+    protected $guarded = ['_token'];
 }
