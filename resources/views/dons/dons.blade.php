@@ -1,10 +1,11 @@
 @extends('../template')
 @section('contenu')
 <div class="text-center">
-    <div class="title my-3">
+    <div class="display-3 my-3">
         Liste des dons
     </div>
 </div>
+<a href="dons/new" type="button" class="btn btn-primary float-right my-3" aria-pressed="true">Nouveau Don</a>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -25,7 +26,6 @@
             <th>Editer</th>
             <th>Voir</th>
             <th>Supprimer</th>
-
         </tr>
     </thead>
     <tbody>

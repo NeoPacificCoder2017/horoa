@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// List dons
+Route::get('dons','DonController@index');
+
+//List single don
+Route::get('don/{id}','DonController@showDon');
+
+//Creat new don
+Route::post('don','DonController@store');
+
+//Update don
+Route::put('don','DonController@store');
+
+//Delete don
+Route::delete('don/{id}','DonController@destroyDon');

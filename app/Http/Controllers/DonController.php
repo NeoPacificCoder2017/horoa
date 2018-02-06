@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Don;
+use App\Http\Resources\Don as DonResource;
 
 class DonController extends Controller
 {
@@ -87,6 +89,85 @@ class DonController extends Controller
         $don->delete();
 
         return view('dons.don-delete-confirmation');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        // get don
+        $dons = Don::paginate(15);
+
+        // return collection of don as a resource
+        return DonResource::collection($dons);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+            $don = $request ->isMethod('put') ? Don::findOrfail($request->don_id):new Don;
+
+            $don->id = $request->input('don_id');
+            $don->nom = $request->input('nom');
+            $don->prenom = $request->input('prenom');
+            $don->mail = $request->input('mail');
+            $don->password = $request->input('password');
+            $don->telephone = $request->input('telephone');
+            $don->addresse = $request->input('addresse');
+            $don->don = $request->input('don');
+            $don->mode_don_id = $request->input('mode_don_id');
+            $don->date = $request->input('date');
+            $don->heure = $request->input('heure');
+            $don->validate = $request->input('validate');
+            $don->admin_id = $request->input('admin_id');
+            $don->somme_verse = $request->input('somme_verse');
+            $don->operation_id = $request->input('operation_id');
+
+        if($don->save()){
+            return new DonResource($don);
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Don  $don
+     * @return \Illuminate\Http\Response
+     */
+    public function showDon($id)
+    {
+        // Get don
+        $don = Don::findOrFail($id);
+
+        // return single don from a resource
+        return new DonResource($don);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Don  $don
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyDon($id)
+    {
+        // Get don
+        $don = Don::findOrFail($id);
+
+        if($don->delete()){
+            return new DonResource($don);
+        }
     }
 
 }

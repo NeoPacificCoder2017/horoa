@@ -13,36 +13,37 @@ class DonsTableSeeder extends Seeder
      */
     public function run()
     {
-        $dons = [ ];
+        // $dons = [ ];
 
-        for($i = 0; $i < 20; $i++) :
-            $telephone = rand(10000000,12345678);
-            $don = rand(1,10000000);
+        // for($i = 0; $i < 20; $i++) :
+        //     $telephone = rand(10000000,12345678);
+        //     $don = rand(1,10000000);
 
-            $dons [ ]  = [
+        //     $dons [ ]  = [
 
-                'nom' => str_random(10),
-                'prenom' => str_random(10),
-                'mail' => str_random(10).'@gmail.com',
-                'password' => str_random(10),
-                'telephone' => $telephone,
-                'addresse' => str_random(20),
-                'don' => $don,
-                'mode_don_id' => rand(1,10),
-                'date' => '2000-02-02',
-                'heure' => '12:12:12',
-                'validate' => rand(0,1),
-                'admin_id' => rand(1,3),
-                'somme_verse' => rand(1,10000),
-                'operation_id' => rand(1,5)
+        //         'nom' => str_random(10),
+        //         'prenom' => str_random(10),
+        //         'mail' => str_random(10).'@gmail.com',
+        //         'password' => str_random(10),
+        //         'telephone' => $telephone,
+        //         'addresse' => str_random(20),
+        //         'don' => $don,
+        //         'mode_don_id' => rand(1,10),
+        //         'date' => '2000-02-02',
+        //         'heure' => '12:12:12',
+        //         'validate' => rand(0,1),
+        //         'admin_id' => rand(1,3),
+        //         'somme_verse' => rand(1,10000),
+        //         'operation_id' => rand(1,5)
 
-            ];
-        endfor;
+        //     ];
+        // endfor;
         
-        foreach($dons as $don):
+        // foreach($dons as $don):
 
-            Don::create($don);
+        //     Don::create($don);
             
-        endforeach;
+        // endforeach;
+        factory(App\Don::class, 30)->create();
     }
 }

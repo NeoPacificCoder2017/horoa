@@ -20,7 +20,7 @@ class CreatesDonsTable extends Migration
             $table->string('prenom');
             $table->string('mail');
             $table->string('password');
-            $table->integer('telephone');
+            $table->string('telephone');
             $table->text('addresse');
             $table->integer('don');
             $table->integer('mode_don_id');

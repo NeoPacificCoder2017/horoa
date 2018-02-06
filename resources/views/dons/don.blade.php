@@ -1,6 +1,7 @@
 @extends('../template')
 @section('contenu')
 <div class="text-center my-3 display-4">Dons : {{ $don->nom }}</div>
+<a href="new" type="button" class="btn btn-primary my-3" aria-pressed="true">Nouveau Don</a>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -20,7 +21,6 @@
             <th>operation_id</th>
             <th>Editer</th>
             <th>Supprimer</th>
-
         </tr>
     </thead>
     <tbody>
