@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\modeDon;
+use App\ModeDon;
 
-class modeDonController extends Controller
+class ModeDonController extends Controller
 {
     /*
     **affiche la liste des modes de don

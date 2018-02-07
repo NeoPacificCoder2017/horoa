@@ -15,7 +15,7 @@ class CreateModesDons extends Migration
     {
         Schema::create('modes_dons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom',45)->unique();
+            $table->string('nom');
 
             $table->timestamps();
         });

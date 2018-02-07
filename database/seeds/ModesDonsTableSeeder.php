@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\User;
+use App\ModeDon;
 
-class ModesDonsSeeder extends Seeder
+class ModesDonsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,24 +13,16 @@ class ModesDonsSeeder extends Seeder
      */
     public function run()
     {
-        $modedons = ['virement','cheque','espece'];
-        for ($i = 0;$i < 5;$i++):
+        $modedon = ['virement','cheque','espece'];
+        for ($i = 0;$i < 3;$i++):
         
-
-           
             $modedons [] = [
-                'nom' => $modedons(rand($i)),
+                'nom' => $modedon[$i],
             ];
-
         endfor;
 
-        
-
         foreach ($modedons AS $modedon):
-
-
-        ModeDon::create($modedon);
-
+            ModeDon::create($modedon);
         endforeach;
     }
 }
