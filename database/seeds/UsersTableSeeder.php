@@ -25,8 +25,9 @@ class UsersTableSeeder extends Seeder
                 'prenom' => str_random(9),
                 'email' => str_random(10).'@gmail.com',
                 'password' => bcrypt('secret'),
-                'remember_token' => str_random(30),
                 'profile_type_id' => $profiletypeid,
+                'credibility' => rand(0,100),
+                'remember_token' => str_random(30),
     
             ];
 

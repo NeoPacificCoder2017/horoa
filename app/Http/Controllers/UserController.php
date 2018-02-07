@@ -9,41 +9,57 @@ use App\User;
 class UserController extends Controller
 {
 
-    /*
-    **affiche la liste de tous les utilisateurs
-    */
-    public function all() {
-
-       return User::all();
-
-       
-
+    
+    public function all(){
+        $users = User::all();
+        return view('users.users',['users' => $users]);
     }
 
-    /*
-    **affiche les information de l'utilisateur
-    */
-    public function show(){}
+    public function show($userId){
+        $user = User::find($userId);
+        return view('users.user',['user' => $user]);
+    }
 
-    /*
-    **enregistre le nouvelle Utilisateurs
-    */
-    public function new(Request $request){
+    public function new(){ 
+            $url ='users' ;
+            $method='POST';
 
+            $user = new User();
+            return view('users.user-form',['user'=>$user,'url'=>$url,'method'=>$method]);//on déclare les variable pour etre intercepter dans le formulaire
+    }
+
+    public function create(Request $request){ 
         $input = $request->all();
-        dump($input);
+        
         $user = new User();
-
         $user->nom = $input['nom'];
         $user->prenom = $input['prenom'];
         $user->email = $input['email'];
         $user->password = $input['password'];
 
         $user->save();
-
-        return "Félicitation ".request('nom').' '.request('prenom').' votre inscription réussit';
-               
+        return view('users.user-create-confirmation');
     }
 
+    public function edit($userId){
+        $url ='users/'.$userId ;
+        $method='POST';
+        
+        $user = User::find($userId);
+        return view('users.user-form',['user' => $user,'url'=>$url,'method'=>$method]);
+    }
+
+    public function update(Request $request, $userId){ 
+
+        User::find($userId)->update($request->all());
+        return view('users.user-update-confirmation');
+    }
+
+    public function destroy($userId){
+        $user = User::find($userId);
+        $user->delete();
+
+        return view('users.user-delete-confirmation');
+    }
 
 }

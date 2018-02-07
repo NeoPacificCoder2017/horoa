@@ -11,17 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('users','UserController@all');
-
-
-Route::get('/users/new',function (){
-
-    return view('user-form');
-
-});
-
-Route::post('users/new','UserController@new');
+Route::get('users', 'UserController@all');
+Route::get('users/new', 'UserController@new');
+Route::post('users', 'UserController@create');
+Route::get('users/{userId}', 'UserController@show'); 
+Route::get('users/{userId}/edit', 'UserController@edit');
+Route::post('users/{userId}', 'UserController@update');
+Route::delete('users/{userId}', 'UserController@destroy')->name('delete');
