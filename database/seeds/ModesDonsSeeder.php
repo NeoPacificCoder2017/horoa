@@ -13,14 +13,13 @@ class ModesDonsSeeder extends Seeder
      */
     public function run()
     {
-        $modedons = [];
+        $modedons = ['virement','cheque','espece'];
         for ($i = 0;$i < 5;$i++):
         
 
            
             $modedons [] = [
-                'nom' => str_random(6),
-    
+                'nom' => $modedons(rand($i)),
             ];
 
         endfor;
