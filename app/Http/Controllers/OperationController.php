@@ -58,7 +58,6 @@ class OperationController extends Controller
         Operation::find($operationId)->update($request->all());
 
         return redirect('operations');
-        return back()->with('success','Item created successfully!');
     }
 
     public function destroy($operationId){
