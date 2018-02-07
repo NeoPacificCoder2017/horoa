@@ -38,6 +38,7 @@ Route::post('modedon','ModeDonController@new');
 Route::get('modedon/{modedonId}','ModeDonController@show');
 Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
 Route::post('modedons/{modedonId}','ModeDonController@update');
+Route::delete('modedons/{modedonId}','ModeDonController@destroy');
 
 
 

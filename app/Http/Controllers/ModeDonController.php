@@ -78,4 +78,11 @@ class ModeDonController extends Controller
 
     }
 
+    public function destroy($modedonId){
+        $modedon = ModeDon::find($modedonId);
+        $modedon->delete();
+
+        return "good";
+    }
+
 }
