@@ -27,6 +27,6 @@ class CreateProfilesTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles_types');
+        Schema::dropIfExists('profile_types');
     }
 }
