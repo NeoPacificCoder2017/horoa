@@ -16,3 +16,18 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// List operations
+Route::get('operations','OperationController@index');
+
+//List single operation
+Route::get('operation/{id}','OperationController@showOperation');
+
+//Creat new operation
+Route::post('operation','OperationController@store');
+
+//Update operation
+Route::put('operation','OperationController@store');
+
+//Destroy operation
+Route::delete('operation/{id}','OperationController@destroyOperation');

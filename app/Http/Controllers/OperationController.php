@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Operation;
+use App\Http\Resources\Operation as OperationResource;
 
 class OperationController extends Controller
 {
@@ -13,7 +15,7 @@ class OperationController extends Controller
     }
 
     public function show($operationId){
-        $operation = Operation::find($operationId);
+        $operation = Operation::find($operationId)->select()->where();
         return view('operations.operation',['operation' => $operation]);
     }
 
@@ -64,5 +66,78 @@ class OperationController extends Controller
         $operation->delete();
 
         return redirect('operations');
+    }
+
+    //=================== Api =======================================
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        // get operation
+        $operations = Operation::paginate(30);
+
+        // return collection of operation as a resource
+        return OperationResource::collection($operations);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+        $operation = $request ->isMethod('put') ? Operation::findOrfail($request->operation_id):new Operation;
+
+        $operation->id = $request->input('operation_id');
+        $operation->nom = $request->input('nom');
+        $operation->date_debut = $request->input('date_debut');
+        $operation->date_fin = $request->input('date_fin');
+        $operation->createur_id = $request->input('createur_id') ;
+        $operation->total_recolter = $request->input('total_recolter');
+        $operation->total_promis = $request->input('total_promis');
+
+        if($operation->save()){
+            return new OperationResource($operation);
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Operation  $operation
+     * @return \Illuminate\Http\Response
+     */
+    public function showOperation($id)
+    {
+        // Get operation
+        $operation = Operation::findOrFail($id);
+
+        // return single operation from a resource
+        return new OperationResource($operation);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Operation  $operation
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyOperation($id)
+    {
+        // Get operation
+        $operation = Operation::findOrFail($id);
+
+        if($operation->delete()){
+            return new OperationResource($operation);
+        }
     }
 }
