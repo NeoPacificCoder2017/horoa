@@ -18,7 +18,7 @@ class DocumentController extends Controller
     }
 
     public function new(){ 
-            $url ='document' ;
+            $url ='documents' ;
             $method='POST';
 
             $document = new Document();
@@ -29,10 +29,11 @@ class DocumentController extends Controller
         $input = $request->all();
         
         $document = new Document();
-        $document->nom = $input['nom'];
+        
         $document->filename = $input['filename'];
         $document->user_id = $input['user_id'];
         $document->operation_id = $input['operation_id'];
+        
         $document->save();
 
         return view('documents.document-create-confirmation');

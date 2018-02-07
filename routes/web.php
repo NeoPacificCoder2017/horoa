@@ -61,7 +61,14 @@ Route::get('useroperation/{useroperationId}/edit','userOperationController@edit'
 Route::PUT('useroperation/{useroperationId}','userOperationController@update');
 Route::delete('useroperation/{useroperationId}','userOperationController@destroy');
 
-
+// Route documents
+Route::get('documents', 'DocumentController@all');
+Route::post('documents', 'DocumentController@create');
+Route::get('documents/new', 'DocumentController@new');
+Route::get('documents/{documentId}', 'DocumentController@show'); 
+Route::get('documents/{documentId}/edit', 'DocumentController@edit');
+Route::post('documents/{documentId}', 'DocumentController@update');
+Route::delete('documents/{documentId}', 'DocumentController@destroy')->name('delete');
 
 
 Auth::routes();
