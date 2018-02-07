@@ -8,72 +8,47 @@ use App\ModeDon;
 
 class ModeDonController extends Controller
 {
-    /*
-    **affiche la liste des modes de don
-    */
-    public function all() {
-
-        $modedon = modeDon::all();
- 
-        return view('modedons');
-        
- 
-     }
-
-        /*
-    **affiche les information de l'utilisateur
-    */
-    public function show($modedonId){
-
-        $modedon = modeDon::find($modedonId);
-
-
-        return view('modedon',["modedon"=>$modedon]);
-
+    public function all(){
+        $modesDons = ModeDon::all();
+        return view('modesDons.modesdons',['modesDons' => $modesDons]);
     }
 
-
-    /*
-    **enregistre un nouveau mode de Don
-    */
-    public function new(Request $request){
-
-        $input = $request->all();
-        dump($input);
-        $modedon = new modeDon();
-
-        $modedon->nom = $input['nom'];
-        $modedon->save();
-
-        
-        return view('modedon-create-confirmation');     
+    public function show($modeDonId){
+        $modeDon = ModeDon::find($modeDonId);
+        return view('modesDons.modedon',['modeDon' => $modeDon]);
     }
 
-    /*
-    **Function Edit
-    */
-    public function edit($modedonId){
-        $modedon = modeDon::find($modedonId);
-       
-        dump($modedon);
-        return view('edit.modedon-form',["modedon" => $modedon]);
+    public function new(){ 
+        $url ='modedons' ;
+        $method='POST';
+
+        $modeDon = new ModeDon();
+        return view('modesDons.modedon-form',['modeDon'=>$modeDon,'url'=>$url,'method'=>$method]);//on déclare les variable pour etre intercepter dans le formulaire
     }
 
-    /*
-    **met a jour le mode de Don
-    */
-    public function update(Request $request,$modedonId){
-
-        modeDon::find($modedonId)->update($request->all());
-        $modedon = modeDon::find($modedonId);
+    public function create(Request $request){ 
         $input = $request->all();
         
+        $modeDon = new ModeDon();
+        $modeDon->nom = $input['nom'];
 
-        $modedon->nom = $request->$input['nom'];
+        $modeDon->save();
+        return view('modesDons.modedon-create-confirmation');
+    }
 
-        $modedon->save();
+   public function edit($modeDonId){
+        $url ='modedons/'.$modeDonId ;
+        $method='POST';
+        
+        $modeDon = ModeDon::find($modeDonId);
+        return view('modesDons.modedon-form',['modeDon' => $modeDon,'url'=>$url,'method'=>$method]);
+   }
 
-        return view('{modedonId}');
+    public function update(Request $request,$modeDonId){
+
+        ModeDon::find($modeDonId)->update($request->all());
+
+        return view('modesDons.modedon-update-confirmation');
 
 
     }
@@ -82,7 +57,7 @@ class ModeDonController extends Controller
         $modedon = ModeDon::find($modedonId);
         $modedon->delete();
 
-        return "good";
+        return view('modesDons.modedon-delete-confirmation');
     }
 
 }

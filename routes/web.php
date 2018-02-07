@@ -31,14 +31,12 @@ Route::post('users/{userId}','UserController@update');
 **ROUTE Entity_ModeDon
 */
 Route::get('modedons','ModeDonController@all');
-Route::get('/modedon/new', function(){
-    return view('modedon-form');
-});
-Route::post('modedon','ModeDonController@new');
-Route::get('modedon/{modedonId}','ModeDonController@show');
-Route::get('modedon/{modedonId}/edit','ModeDonController@edit');
-Route::post('modedons/{modedonId}','ModeDonController@update');
-Route::delete('modedons/{modedonId}','ModeDonController@destroy');
+Route::get('modedon/new','ModeDonController@new');
+Route::post('modedons', 'ModeDonController@create');
+Route::get('modedon/{modeDonId}','ModeDonController@show');
+Route::get('modedon/{modeDonId}/edit','ModeDonController@edit');
+Route::post('modedons/{modeDonId}','ModeDonController@update');
+Route::delete('modedons/{modeDonId}','ModeDonController@destroy')->name('delete');
 
 
 
