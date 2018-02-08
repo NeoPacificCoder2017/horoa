@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
          $this->call(RateTableSeeder::class);
          $this->call(OrganismTableSeeder::class);
          $this->call(ReceptionModeTableSeeder::class);
+         $this->call(ReceptionModeOrganismTableseeder::class);
     }
 }

@@ -106,6 +106,15 @@ Route::get('receptionmodes/{receptionmodeId}/edit', 'ReceptionModeController@edi
 Route::post('receptionmodes/{receptionmodeId}', 'ReceptionModeController@update');
 Route::delete('receptionmodes/{receptionmodeId}', 'ReceptionModeController@destroy')->name('delete');
 
+// Route Receptions Modes Organisms
+Route::get('receptionmodeorganisms', 'ReceptionModeOrganismController@all');
+Route::post('receptionmodeorganisms', 'ReceptionModeOrganismController@create');
+Route::get('receptionmodeorganisms/new', 'ReceptionModeOrganismController@new');
+Route::get('receptionmodeorganisms/{receptionmodeorganismId}', 'ReceptionModeOrganismController@show'); 
+Route::get('receptionmodeorganisms/{receptionmodeorganismId}/edit', 'ReceptionModeOrganismController@edit');
+Route::post('receptionmodeorganisms/{receptionmodeorganismId}', 'ReceptionModeOrganismController@update');
+Route::delete('receptionmodeorganisms/{receptionmodeorganismId}', 'ReceptionModeOrganismController@destroy')->name('delete');
+
 
 Auth::routes();
 
