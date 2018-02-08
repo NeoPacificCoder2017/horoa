@@ -124,7 +124,6 @@ Route::get('receptionmodeoperations/{receptionmodeoperationId}/edit', 'Reception
 Route::post('receptionmodeoperations/{receptionmodeoperationId}', 'ReceptionModeOperationController@update');
 Route::delete('receptionmodeoperations/{receptionmodeoperationId}', 'ReceptionModeOperationController@destroy')->name('delete');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
