@@ -8,7 +8,6 @@ use App\User;
 
 class UserController extends Controller
 {
-
     
     public function all(){
         $users = User::all();
@@ -36,6 +35,7 @@ class UserController extends Controller
         $user->prenom = $input['prenom'];
         $user->email = $input['email'];
         $user->password = $input['password'];
+        $user->credibility = $input['credibility'];
 
         $user->save();
         return view('users.user-create-confirmation');

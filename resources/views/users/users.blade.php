@@ -27,7 +27,7 @@
             <td> {{ $user->id}} </td>
             <td> {{ $user->nom}} </td>
             <td> {{ $user->prenom}} </td>
-            <td> {{ $user->mail}} </td>
+            <td> {{ $user->email}} </td>
             <td> {{ $user->password}} </td>
             <td> {{ $user->profile_type_id}} </td>
             <td> {{ $user->credibility}} </td>
