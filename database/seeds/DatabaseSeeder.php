@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
          $this->call(OrganismTableSeeder::class);
          $this->call(ReceptionModeTableSeeder::class);
          $this->call(ReceptionModeOrganismTableseeder::class);
+         $this->call(ReceptionModeOperationtableSeeder::class);
     }
 }
