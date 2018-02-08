@@ -79,6 +79,15 @@ Route::get('actualities/{actualityId}/edit', 'ActualityController@edit');
 Route::post('actualities/{actualityId}', 'ActualityController@update');
 Route::delete('actualities/{actualityId}', 'ActualityController@destroy')->name('delete');
 
+// Route rates
+Route::get('rates', 'RateController@all');
+Route::post('rates', 'RateController@create');
+Route::get('rates/new', 'RateController@new');
+Route::get('rates/{rateId}', 'RateController@show'); 
+Route::get('rates/{rateId}/edit', 'RateController@edit');
+Route::post('rates/{rateId}', 'RateController@update');
+Route::delete('rates/{rateId}', 'RateController@destroy')->name('delete');
+
 
 Auth::routes();
 
