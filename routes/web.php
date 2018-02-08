@@ -97,6 +97,15 @@ Route::get('organisms/{organismId}/edit', 'OrganismController@edit');
 Route::post('organisms/{organismId}', 'OrganismController@update');
 Route::delete('organisms/{organismId}', 'OrganismController@destroy')->name('delete');
 
+// Route UserOrganisms
+Route::get('userorganisms', 'UserOrganismController@all');
+Route::post('userorganisms', 'UserOrganismController@create');
+Route::get('userorganisms/new', 'UserOrganismController@new');
+Route::get('userorganisms/{userorganismId}', 'UserOrganismController@show'); 
+Route::get('userorganisms/{userorganismId}/edit', 'UserOrganismController@edit');
+Route::post('userorganisms/{userorganismId}', 'UserOrganismController@update');
+Route::delete('userorganisms/{userorganismId}', 'UserOrganismController@destroy')->name('delete');
+
 
 Auth::routes();
 
