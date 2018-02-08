@@ -8,21 +8,21 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
 
-    public function index(){
+    // public function index(){
 
 
-        $user = Auth::user();
-      $users = User::all()->where('profil_type_id',$user->profil_type_id);
-      return view('users',['user' => $user]);
-        // Auth::login($user, true);
+    // $user = Auth::user();
+    // $users = User::all()->where('profil_type_id',$user->profil_type_id);
+    // return view('users',['user' => $user]);
+    //     // Auth::login($user, true);
 
-    }
+    // }
     
     /*
     **affiche la liste de tous les utilisateurs
