@@ -29,7 +29,8 @@ class UserController extends Controller
     */
     public function all() {
 
-       $user = User::all();
+       $users = User::all();
+       
 
        return view('users');
        

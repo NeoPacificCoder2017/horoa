@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\ReceptionModeOrganism;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReceptionModeOrganismController extends Controller
 {
     
     public function all(){
-        $receptionmodeorganisms = ReceptionModeOrganism::all();
+        // $receptionmodeorganisms = ReceptionModeOrganism::all();
+        $receptionmodeorganisms = DB::table('reception_mode_organisms')
+        ->join('organisms','organisms.id', '=' ,'reception_mode_organisms.organism_id')
+        ->join('reception_modes','reception_modes.id', '=' ,'reception_mode_organisms.reception_mode_id')
+        ->select('organisms.nom as organism_id','reception_mode_organisms.reception_mode_id','reception_mode_organisms.iban','reception_mode_organisms.id'
+                    ,'reception_modes.title as reception_mode_id')
+        ->get();
         return view('receptionmodeorganisms.receptionmodeorganisms',['receptionmodeorganisms' => $receptionmodeorganisms]);
     }
 
@@ -18,7 +25,7 @@ class ReceptionModeOrganismController extends Controller
         return view('receptionmodeorganisms.receptionmodeorganism',['receptionmodeorganism' => $receptionmodeorganism]);
     }
 
-    public function new(){ 
+    public function new(){
             $url ='receptionmodeorganisms' ;
             $method='POST';
 
