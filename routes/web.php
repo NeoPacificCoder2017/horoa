@@ -88,6 +88,15 @@ Route::get('rates/{rateId}/edit', 'RateController@edit');
 Route::post('rates/{rateId}', 'RateController@update');
 Route::delete('rates/{rateId}', 'RateController@destroy')->name('delete');
 
+// Route Organisms
+Route::get('organisms', 'OrganismController@all');
+Route::post('organisms', 'OrganismController@create');
+Route::get('organisms/new', 'OrganismController@new');
+Route::get('organisms/{organismId}', 'OrganismController@show'); 
+Route::get('organisms/{organismId}/edit', 'OrganismController@edit');
+Route::post('organisms/{organismId}', 'OrganismController@update');
+Route::delete('organisms/{organismId}', 'OrganismController@destroy')->name('delete');
+
 
 Auth::routes();
 
