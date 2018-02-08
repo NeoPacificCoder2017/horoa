@@ -70,6 +70,15 @@ Route::get('documents/{documentId}/edit', 'DocumentController@edit');
 Route::post('documents/{documentId}', 'DocumentController@update');
 Route::delete('documents/{documentId}', 'DocumentController@destroy')->name('delete');
 
+// Route actualities
+Route::get('actualities', 'ActualityController@all');
+Route::post('actualities', 'ActualityController@create');
+Route::get('actualities/new', 'ActualityController@new');
+Route::get('actualities/{actualityId}', 'ActualityController@show'); 
+Route::get('actualities/{actualityId}/edit', 'ActualityController@edit');
+Route::post('actualities/{actualityId}', 'ActualityController@update');
+Route::delete('actualities/{actualityId}', 'ActualityController@destroy')->name('delete');
+
 
 Auth::routes();
 
